@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compresseur Nuance</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" href="images/icon-512x512.png"> <meta name="theme-color" content="#301934"> </head>
+<body>
+    <header>
+        <h1>Compresseur Nuance</h1>
+    </header>
+    <main>
+        <section id="upload-section">
+            <input type="file" id="fileInput" multiple style="display: none;">
+            <button id="uploadButton" class="button">Sélectionner les fichiers</button>
+            <ul id="fileList"></ul>
+        </section>
+        <section id="compression-section" style="display:none;">
+            <div id="progress-bar-container" class="progress-bar-container">
+                <div id="progress-bar" class="progress-bar"></div>
+                <span id="progress-percentage" class="progress-percentage">0%</span>
+            </div>
+            <button id="compressButton" class="button primary">Compresser et Télécharger</button>
+        </section>
+        <section id="download-section" style="display:none;">
+            <p id="download-message">Votre fichier compressé est prêt à être téléchargé !</p>
+            <a id="downloadLink" class="button primary" download="archive.zip">Télécharger le fichier ZIP</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Compresseur Nuance</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js');
+            });
+        }
+    </script>
+</body>
+</html>
